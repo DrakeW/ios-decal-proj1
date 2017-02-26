@@ -8,24 +8,22 @@
 
 import Foundation
 
+enum GameState: Int {
+    case ongoing = 0
+    case win, fail
+}
+
 class HangmanGame {
     
-    enum GameState: Int {
-        case ongoing = 0
-        case win, fail
-    }
-    
     var phrase: String
-    var phraseGenerator: HangmanPhrases
     var incorrectGuessesList: [String]
     var gameState: GameState
     var correctGuessesList: [String]
     
-    let MAX_WRONG_GUSSES = 10
+    let MAX_WRONG_GUSSES = 7
     
-    init() {
-        phraseGenerator = HangmanPhrases()
-        phrase = phraseGenerator.getRandomPhrase()
+    init(_ phrase: String) {
+        self.phrase = phrase.lowercased()
         incorrectGuessesList = [String]()
         correctGuessesList = [String]()
         gameState = .ongoing
@@ -51,7 +49,11 @@ class HangmanGame {
         return .ongoing
     }
     
-    func newGame() -> HangmanGame {
-        return HangmanGame()
+    func getNewGame(_ phrase: String) -> HangmanGame {
+        return HangmanGame(phrase)
+    }
+    
+    func getNumOfWrongGuesses() -> Int {
+        return incorrectGuessesList.count
     }
 }
