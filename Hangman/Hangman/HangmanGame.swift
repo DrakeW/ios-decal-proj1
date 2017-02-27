@@ -31,8 +31,10 @@ class HangmanGame {
     
     func guessLetter(_ letter: String) -> Bool {
         let hasLetter = phrase.contains(letter)
-        correctGuessesList.append(letter)
         if hasLetter {
+            if !correctGuessesList.contains(letter) {
+                correctGuessesList.append(letter)
+            }
             return true
         } else {
             incorrectGuessesList.append(letter)
@@ -41,7 +43,7 @@ class HangmanGame {
     }
     
     func checkGameState() -> GameState {
-        if incorrectGuessesList.count == MAX_WRONG_GUSSES {
+        if incorrectGuessesList.count >= MAX_WRONG_GUSSES {
             return .fail
         } else if correctGuessesList.count == Set(phrase.characters).count {
             return .win
