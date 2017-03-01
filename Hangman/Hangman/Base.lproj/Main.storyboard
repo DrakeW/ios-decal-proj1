@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -24,21 +25,25 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Qnv-pN-Kse">
                                 <rect key="frame" x="67" y="97" width="240" height="240"/>
                                 <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="240" id="2Cv-c5-QcD"/>
                                     <constraint firstAttribute="width" constant="240" id="eQ3-A8-aCg"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="240" id="npP-vH-foR"/>
                                     <constraint firstAttribute="height" constant="240" id="sDu-l1-7nv"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FZw-Ro-chZ">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FZw-Ro-chZ">
                                 <rect key="frame" x="80" y="409" width="43" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Guess"/>
                                 <connections>
                                     <action selector="guessButtonWasPressed:" destination="33m-bG-32Y" eventType="touchUpInside" id="jgX-CK-Zfj"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fyx-DT-tvx">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fyx-DT-tvx">
                                 <rect key="frame" x="148" y="409" width="97" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="dvR-jk-OvD"/>
+                                    <constraint firstAttribute="width" constant="97" id="otx-vH-BOM"/>
+                                </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -50,16 +55,14 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Incorrect Guesses:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O9e-q2-4Oy">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Incorrect Guesses:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O9e-q2-4Oy">
                                 <rect key="frame" x="48" y="370" width="279" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QNN-d8-Nr0">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QNN-d8-Nr0">
                                 <rect key="frame" x="288" y="28" width="71" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Start Over"/>
                                 <connections>
                                     <action selector="startOverButtonWasPressed:" destination="33m-bG-32Y" eventType="touchUpInside" id="zPm-GQ-OkB"/>
@@ -68,8 +71,17 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="Rkb-O3-rip" firstAttribute="top" secondItem="fyx-DT-tvx" secondAttribute="bottom" constant="110" id="KEK-JV-LWt"/>
                             <constraint firstItem="Qnv-pN-Kse" firstAttribute="top" secondItem="fga-sG-nzY" secondAttribute="bottom" constant="77" id="Kcd-aE-mw4"/>
                             <constraint firstItem="Qnv-pN-Kse" firstAttribute="centerX" secondItem="xKS-yl-l6T" secondAttribute="centerX" id="LUE-GC-q86"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="QNN-d8-Nr0" secondAttribute="trailing" id="PjW-qN-Q4H"/>
+                            <constraint firstItem="fyx-DT-tvx" firstAttribute="centerX" secondItem="Qnv-pN-Kse" secondAttribute="centerX" id="ULy-de-dbc"/>
+                            <constraint firstItem="O9e-q2-4Oy" firstAttribute="centerX" secondItem="xKS-yl-l6T" secondAttribute="centerX" id="VDP-mr-F0K"/>
+                            <constraint firstItem="O9e-q2-4Oy" firstAttribute="top" secondItem="Qnv-pN-Kse" secondAttribute="bottom" constant="33" id="nGL-f2-gvs"/>
+                            <constraint firstItem="Rkb-O3-rip" firstAttribute="top" secondItem="FZw-Ro-chZ" secondAttribute="bottom" constant="110" id="nkH-4I-CMa"/>
+                            <constraint firstItem="fyx-DT-tvx" firstAttribute="leading" secondItem="FZw-Ro-chZ" secondAttribute="trailing" constant="25" id="scK-aj-Mgf"/>
+                            <constraint firstItem="QNN-d8-Nr0" firstAttribute="top" secondItem="fga-sG-nzY" secondAttribute="bottom" constant="8" id="xOI-as-xVh"/>
+                            <constraint firstItem="fyx-DT-tvx" firstAttribute="top" secondItem="O9e-q2-4Oy" secondAttribute="bottom" constant="18" id="xSk-ra-g2I"/>
                         </constraints>
                     </view>
                     <connections>
